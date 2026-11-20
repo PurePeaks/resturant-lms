@@ -11,7 +11,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 const DEMO_ACCOUNTS =
   process.env.NODE_ENV !== "production"
     ? [
-        { role: "Super Admin", email: "admin@platform.com", pass: "admin123" },
+        { role: "Super Admin", email: "info@pure-peaks.com", pass: "admin123" },
         { role: "Manager", email: "manager@restaurant-a.com", pass: "manager123" },
         { role: "Staff (John)", email: "john.doe@restaurant-a.com", pass: "staff123" },
         { role: "Staff (Jane)", email: "jane.smith@restaurant-a.com", pass: "staff123" },

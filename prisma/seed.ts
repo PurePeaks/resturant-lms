@@ -32,7 +32,7 @@ async function main() {
   console.log("Seeding database...");
 
   // 1. Create Super Admin (no tenant)
-  await ensureUser({ email: "admin@platform.com", name: "Super Admin", role: Role.SUPER_ADMIN, tenantId: null });
+  await ensureUser({ email: "info@pure-peaks.com", name: "Super Admin", role: Role.SUPER_ADMIN, tenantId: null });
 
   // 2. Create Tenant: Restaurant A
   const tenantA = await prisma.tenant.upsert({
