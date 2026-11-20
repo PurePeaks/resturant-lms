@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* Gradient underline that draws in from the left on hover and retracts to the right. */
+@utility link-underline {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -4px;
+    height: 1px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, #fda4af, #fcd34d);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@theme {
+  --animate-slab-spin: slab-spin 22s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-aurora: aurora 14s ease-in-out infinite alternate;
+  --animate-heat-wave: heat-wave 2.6s ease-in infinite;
+
+  @keyframes slab-spin {
+    from {
+      transform: rotateX(var(--tilt, 62deg)) rotateZ(0deg);
+    }
+    to {
+      transform: rotateX(var(--tilt, 62deg)) rotateZ(360deg);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+
+  @keyframes aurora {
+    0% {
+      transform: translate3d(-12%, -6%, 0) scale(1);
+    }
+    100% {
+      transform: translate3d(12%, 8%, 0) scale(1.25);
+    }
+  }
+
+  @keyframes heat-wave {
+    0% {
+      transform: translateY(18px);
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-46px);
+      opacity: 0;
+    }
+  }
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html {
+  color-scheme: dark;
+  background-color: #000000;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+* {
+  scroll-behavior: smooth;
+}
