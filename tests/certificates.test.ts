@@ -7,6 +7,7 @@ import {
   normalizeVerificationCode,
 } from "@/lib/training";
 
+
 describe("verification codes", () => {
   it("are 16 uppercase hex characters and unique", () => {
     const codes = new Set(Array.from({ length: 1000 }, generateVerificationCode));
